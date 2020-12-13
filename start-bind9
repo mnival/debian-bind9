@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir -p /run/named && chown bind:bind /run/named
+
 if [ ! -s /etc/bind/bind.d/rndc.key ] && [ ! -s /etc/bind/bind.d/rndc.conf ]; then
 	rndc-confgen -r /dev/urandom -a -c /etc/bind/bind.d/rndc.key
 	chown bind: /etc/bind/bind.d/rndc.key
@@ -8,5 +10,6 @@ fi
 [ ! -s /etc/bind/bind.d/named.conf.local ] && mv /etc/bind/named.conf.local /etc/bind/bind.d/
 [ ! -s /etc/bind/bind.d/named.conf.options ] && mv /etc/bind/named.conf.options /etc/bind/bind.d/
 
+chown bind:bind /var/cache/bind
 
 exec /usr/sbin/named -u bind -f -g
