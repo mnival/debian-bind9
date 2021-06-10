@@ -1,4 +1,6 @@
-FROM debian:stable-slim
+ENV DEBIAN_DATE_VERSION=20210511
+ENV DEBIAN_VERSION=buster
+FROM debian:${DEBIAN_VERSION}-${DEBIAN_DATE_VERSION}-slim
 
 LABEL maintainer="Michael Nival <docker@mn-home.fr>" \
 	name="debian-bind9" \
