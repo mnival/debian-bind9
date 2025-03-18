@@ -1,4 +1,4 @@
-FROM debian:stable-20250224-slim
+FROM debian:stable-20250317-slim
 
 LABEL maintainer="Michael Nival <docker@mn-home.fr>" \
 	name="debian-bind9" \
